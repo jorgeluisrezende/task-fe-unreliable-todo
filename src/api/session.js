@@ -15,7 +15,7 @@ const session = (app) => {
 
 		const {errorRate = DEFAULT_ERROR_RATE} = req.body
 
-		if (typeof errorRate !== 'number' || errorRate < 0 || errorRate > 100) {
+		if (typeof errorRate !== 'number' || errorRate < 0 || errorRate > 100 || Number.isNaN(errorRate)) {
 			return res.status(400).json(generateError(activity, true))
 		}
 
@@ -42,7 +42,7 @@ const session = (app) => {
 		const sessionId = req.headers.sessionid
 		const {errorRate} = req.body
 
-		if (typeof errorRate !== 'number' || errorRate < 0 || errorRate > 100) {
+		if (typeof errorRate !== 'number' || errorRate < 0 || errorRate > 100 || Number.isNaN(errorRate)) {
 			return res.status(400).json(generateError(activity, true))
 		}
 

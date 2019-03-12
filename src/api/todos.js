@@ -19,7 +19,7 @@ const todos = (app) => {
 				typeof text !== 'string' ||
 				typeof isCompleted !== 'boolean' ||
 				typeof urgency !== 'number' ||
-				urgency < 1 || urgency > 5
+				urgency < 1 || urgency > 5 || Number.isNaN(urgency)
 			) {
 				return res.status(400).json(generateError(activity, true))
 			}
@@ -93,7 +93,7 @@ const todos = (app) => {
 			if (!todo) {
 				return res.status(404).json(generateError(activity, true))
 			}
-			if (urgency < 1 || urgency > 5) {
+			if (urgency < 1 || urgency > 5 || Number.isNaN(urgency)) {
 				return res.status(400).json(generateError(activity, true))
 			}
 
