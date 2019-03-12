@@ -46,13 +46,15 @@ const generateTodo = () => {
 	const currentTime = new Date().getTime()
 	const updated = currentTime - Math.round(Math.random() * DAY_MS)
 	const created = Math.random() > 0.5 ? updated : updated - Math.round(Math.random() * DAY_MS)
+	const urgency = 1 + Math.floor(Math.random() * 5) // Between 1 and 5
 
 	return {
 		id: uuid(),
 		text: getRandomFromArray(TODO_TEXTS),
 		created: new Date(created).toISOString(),
 		updated: new Date(updated).toISOString(),
-		isCompleted: Math.random() > 0.5
+		isCompleted: Math.random() > 0.5,
+		urgency,
 	}
 }
 

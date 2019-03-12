@@ -13,9 +13,14 @@ const todos = (app) => {
 		try {
 			const sessionId = req.headers.sessionid
 
-			const {text, isCompleted} = req.body
+			const {text, urgency, isCompleted} = req.body
 
-			if (typeof text !== 'string' || typeof isCompleted !== 'boolean') {
+			if (
+				typeof text !== 'string' ||
+				typeof isCompleted !== 'boolean' ||
+				typeof urgency !== 'number' ||
+				urgency < 1 || urgency > 5
+			) {
 				return res.status(400).json(generateError(activity, true))
 			}
 
@@ -31,6 +36,7 @@ const todos = (app) => {
 				updated: currentTime,
 				text,
 				isCompleted,
+				urgency,
 			}
 
 			const updatedTodos = {
@@ -82,14 +88,24 @@ const todos = (app) => {
 
 			const text = String(req.body.text == null ? todo.text : req.body.text)
 			const isCompleted = Boolean(req.body.isCompleted == null ? todo.isCompleted : req.body.isCompleted)
+			const urgency = Number(req.body.urgency == null ? todo.urgency : req.body.urgency)
 
 			if (!todo) {
 				return res.status(404).json(generateError(activity, true))
 			}
+			if (urgency < 1 || urgency > 5) {
+				return res.status(400).json(generateError(activity, true))
+			}
 
 			raiseErrorBySessionId(sessionId)
 
-			const updatedTodo = {...todo, text, isCompleted, updated: new Date().toISOString()}
+			const updatedTodo = {
+				...todo,
+				text,
+				isCompleted,
+				urgency,
+				updated: new Date().toISOString(),
+			}
 
 			storage.updateSession(sessionId, {
 				todos: {
