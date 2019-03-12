@@ -4,7 +4,11 @@
 
 Your task is to create a simple backend-connected TODO app.
 
-Your app needs to support all CRUD operations on TODO items. There also needs to be a session control component. The level of polish is left up to you.
+Your app needs to support all CRUD operations on TODO items.  
+There also needs to be a session control component.  
+The TODOs have to be filterable.
+
+The level of polish is left up to you.
 
 The following technologies have to be used:
 * React
