@@ -17,7 +17,7 @@ The following technologies have to be used:
 
 Beware! The backend is unreliable, so you need to prepare for your requests to not be accepted!
 
-Apiary: [https://jakubmatuska.docs.apiary.io](https://jakubmatuska.docs.apiary.io)
+Apiary: [https://roihfetask.docs.apiary.io](https://roihfetask.docs.apiary.io)
 
 
 ## Server
