@@ -30,6 +30,8 @@ Apiary: [https://roihfetask.docs.apiary.io](https://roihfetask.docs.apiary.io)
 This repository contains a server to use with your task.
 Just run `npm install` followed by `npm start` and your server will start at `localhost:9000`. You can change the port in `./src/constants.js`.
 
+If you wish to make changes to the server, feel free to fork this repo. Just don't forget to send us that link as well in the end.
+
 ## Good luck and have fun!
 If you struggle, you can contact us at anytime and we will provide more information. Also if you get stuck at one point, just try to implement the rest of the functionality.
 
